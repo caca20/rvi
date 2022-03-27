@@ -20,9 +20,7 @@ public class EnemySpawner : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        enemyPrefab.GetComponent<Enemy>().player = GameObject.Find("Player");
-        
+    {        
         for (int i = 0; i < numberOfEnemies; i++)
         {
             GameObject enemy = SpawnEnemy();
@@ -33,8 +31,8 @@ public class EnemySpawner : MonoBehaviour
     private void Awake() {
         spawnedEnemies = new List<GameObject>();
         spawnPoints = new List<Vector3>();
-        spawnPoints.Add(new Vector3(-3f,0f,-3f));
-        spawnPoints.Add(new Vector3(2f,0f,3f));
+        spawnPoints.Add(new Vector3(-10f,0f,-25f));
+        spawnPoints.Add(new Vector3(10f,0f,-25f));
     }
 
     // Update is called once per frame
