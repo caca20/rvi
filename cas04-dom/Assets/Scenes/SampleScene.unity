@@ -6700,7 +6700,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499984176}
-  - component: {fileID: 1499984175}
   - component: {fileID: 1499984174}
   m_Layer: 0
   m_Name: Enemy
@@ -6725,22 +6724,6 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7743722811148796974, guid: 2e306357445fd4539b2f8345f186bb7a, type: 3}
   spawnPoints: []
   numberOfEnemies: 5
---- !u!114 &1499984175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499984173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1810f91a01e1bf9bc9acf2013e7fe5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnedEnemies: []
-  enemyPrefab: {fileID: 0}
-  spawnPoints: []
-  numberOfEnemies: 0
 --- !u!4 &1499984176
 Transform:
   m_ObjectHideFlags: 0

@@ -21,6 +21,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
+        enemyPrefab.GetComponent<Enemy>().player = GameObject.Find("Player");
+
         for (int i = 0; i < numberOfEnemies; i++)
         {
             GameObject enemy = SpawnEnemy();
