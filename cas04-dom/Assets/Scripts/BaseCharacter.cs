@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour, IDamageable
 {
-   private int health;
+    private int health;
     public int Health { get { return health; } }
+
+    private void Awake() {
+        health = 50;
+    }
     public virtual void TakeDamage(int dmg)
     {
         health -= dmg;

@@ -13,12 +13,16 @@ public class Bullet : MonoBehaviour
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
     
-    
-    private void OnCollisionEnter(Collision other) 
-    {
+    private void OnTriggerEnter(Collider other) {
         if(other != null)
         {
-            Destroy(gameObject);
-        }   
+            if(other.gameObject.name != "Player"){
+
+                if(other.gameObject.tag == "Enemy"){
+                    other.GetComponent<Enemy>().TakeDamage(damage);
+                }
+                Destroy(gameObject);
+            }  
+        }
     }
 }
