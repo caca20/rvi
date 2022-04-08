@@ -7,9 +7,10 @@ public class BaseCharacter : MonoBehaviour, IDamageable
     private int health;
     public int Health { get { return health; } }
 
-    private void Awake() {
-        health = 50;
+    public void SetHealth(int amount){
+        health = amount;
     }
+
     public virtual void TakeDamage(int dmg)
     {
         health -= dmg;

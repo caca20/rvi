@@ -127,6 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateOfFire: 0
   tipOfTheWeapon: {fileID: 5176859464106062631}
-  damage: 20
+  damage: 25
   lastTimeShoot: 0
   bullet: {fileID: 0}

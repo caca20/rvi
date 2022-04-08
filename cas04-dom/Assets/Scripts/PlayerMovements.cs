@@ -5,7 +5,7 @@ using System;
 
 public class PlayerMovements : MonoBehaviour
 {
-    [SerializeField] Rigidbody rigidbody;
+    [SerializeField] Rigidbody rigidBody;
     [SerializeField] Weapons weapon;
     [SerializeField] Camera cam;
     [SerializeField, Range(1f, 5f)] private float speed = 5f;
@@ -49,7 +49,7 @@ public class PlayerMovements : MonoBehaviour
     {
         Vector3 changeInPosition = new Vector3(-horizontal, 0f, -vertical);
         Vector3 goToPositon = transform.position + changeInPosition * speed * Time.deltaTime;   
-        rigidbody.MovePosition(goToPositon);
+        rigidBody.MovePosition(goToPositon);
     }
 
     private void RotateCharacter()

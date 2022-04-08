@@ -9,25 +9,14 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public List<Vector3> spawnPoints;
     public int numberOfEnemies;
-
-    public GameObject SpawnEnemy(){
-        System.Random rand = new System.Random();
-        int itemIndex = Random.Range (0,(spawnPoints.Count));
-        Vector3 pos = spawnPoints[itemIndex];
-        GameObject res = Instantiate(enemyPrefab,pos,Quaternion.identity);
-        return res;
-    }
+    private int enemyCount;
+    public int spawnTime;
+    private Coroutine spawnCoroutine;
 
     // Start is called before the first frame update
     void Start()
     {        
-        enemyPrefab.GetComponent<Enemy>().player = GameObject.Find("Player");
-
-        for (int i = 0; i < numberOfEnemies; i++)
-        {
-            GameObject enemy = SpawnEnemy();
-            spawnedEnemies.Add(enemy);            
-        }
+        StartCoroutine(SpawnCoroutine(spawnTime));
     }
 
     private void Awake() {
@@ -35,11 +24,30 @@ public class EnemySpawner : MonoBehaviour
         spawnPoints = new List<Vector3>();
         spawnPoints.Add(new Vector3(-10f,0f,-25f));
         spawnPoints.Add(new Vector3(10f,0f,-25f));
+        enemyCount = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator SpawnCoroutine(int timeForSpawn)
     {
-        
+        System.Random randomIndex = new System.Random();
+
+        while (true) {
+
+            int index = randomIndex.Next(0, spawnPoints.Count);
+            Vector3 spawnPosition = spawnPoints[index];
+
+            GameObject instantiatedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            instantiatedEnemy.GetComponent<Enemy>().SetId(enemyCount);
+            spawnedEnemies.Add(instantiatedEnemy);
+            enemyCount++;
+
+            if(enemyCount >= numberOfEnemies)
+            {
+                yield break;
+            }
+            
+            yield return new WaitForSecondsRealtime(timeForSpawn);
+
+        }
     }
 }
